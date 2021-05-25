@@ -192,7 +192,23 @@ namespace Session5
                 }
                 int result = modelo.SaveChanges();
                 MessageBox.Show($"Se guardaron {result} servicios");
+                var v = modelo.AmenitiesTickets.ToList();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form f = new Sumary {Visible = true,
+                StartPosition = FormStartPosition.CenterScreen
+            };
+            f.FormClosed += F_FormClosed;
+
+        }
+
+        private void F_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
         }
     }
 }
